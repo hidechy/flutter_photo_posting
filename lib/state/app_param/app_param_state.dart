@@ -8,5 +8,6 @@ part 'app_param_state.freezed.dart';
 class AppParamState with _$AppParamState {
   const factory AppParamState({
     @Default('') String imagePath,
+    @Default([]) List<String> imagePaths,
   }) = _AppParamState;
 }

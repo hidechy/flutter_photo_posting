@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppParamState {
   String get imagePath => throw _privateConstructorUsedError;
+  List<String> get imagePaths => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppParamStateCopyWith<AppParamState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $AppParamStateCopyWith<$Res> {
           AppParamState value, $Res Function(AppParamState) then) =
       _$AppParamStateCopyWithImpl<$Res, AppParamState>;
   @useResult
-  $Res call({String imagePath});
+  $Res call({String imagePath, List<String> imagePaths});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$AppParamStateCopyWithImpl<$Res, $Val extends AppParamState>
   @override
   $Res call({
     Object? imagePath = null,
+    Object? imagePaths = null,
   }) {
     return _then(_value.copyWith(
       imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      imagePaths: null == imagePaths
+          ? _value.imagePaths
+          : imagePaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$AppParamStateImplCopyWith<$Res>
       __$$AppParamStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String imagePath});
+  $Res call({String imagePath, List<String> imagePaths});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$AppParamStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imagePath = null,
+    Object? imagePaths = null,
   }) {
     return _then(_$AppParamStateImpl(
       imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      imagePaths: null == imagePaths
+          ? _value._imagePaths
+          : imagePaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -92,15 +103,25 @@ class __$$AppParamStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppParamStateImpl implements _AppParamState {
-  const _$AppParamStateImpl({this.imagePath = ''});
+  const _$AppParamStateImpl(
+      {this.imagePath = '', final List<String> imagePaths = const []})
+      : _imagePaths = imagePaths;
 
   @override
   @JsonKey()
   final String imagePath;
+  final List<String> _imagePaths;
+  @override
+  @JsonKey()
+  List<String> get imagePaths {
+    if (_imagePaths is EqualUnmodifiableListView) return _imagePaths;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_imagePaths);
+  }
 
   @override
   String toString() {
-    return 'AppParamState(imagePath: $imagePath)';
+    return 'AppParamState(imagePath: $imagePath, imagePaths: $imagePaths)';
   }
 
   @override
@@ -109,11 +130,14 @@ class _$AppParamStateImpl implements _AppParamState {
         (other.runtimeType == runtimeType &&
             other is _$AppParamStateImpl &&
             (identical(other.imagePath, imagePath) ||
-                other.imagePath == imagePath));
+                other.imagePath == imagePath) &&
+            const DeepCollectionEquality()
+                .equals(other._imagePaths, _imagePaths));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, imagePath);
+  int get hashCode => Object.hash(
+      runtimeType, imagePath, const DeepCollectionEquality().hash(_imagePaths));
 
   @JsonKey(ignore: true)
   @override
@@ -123,10 +147,14 @@ class _$AppParamStateImpl implements _AppParamState {
 }
 
 abstract class _AppParamState implements AppParamState {
-  const factory _AppParamState({final String imagePath}) = _$AppParamStateImpl;
+  const factory _AppParamState(
+      {final String imagePath,
+      final List<String> imagePaths}) = _$AppParamStateImpl;
 
   @override
   String get imagePath;
+  @override
+  List<String> get imagePaths;
   @override
   @JsonKey(ignore: true)
   _$$AppParamStateImplCopyWith<_$AppParamStateImpl> get copyWith =>

@@ -12,6 +12,13 @@ class AppParamNotifier extends StateNotifier<AppParamState> {
 
   ///
   Future<void> setImagePath({required String imagePath}) async => state = state.copyWith(imagePath: imagePath);
+
+  ///
+  Future<void> setImagePaths({required String imagePath}) async {
+    final imagePaths = [...state.imagePaths, imagePath];
+
+    state = state.copyWith(imagePaths: imagePaths);
+  }
 }
 
 ////////////////////////////////////////////////
